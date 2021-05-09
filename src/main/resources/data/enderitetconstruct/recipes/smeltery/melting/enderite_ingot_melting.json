@@ -1,0 +1,22 @@
+{
+    "type": "tconstruct:melting",
+    "ingredient": {
+      "tag": "forge:ingots/enderite"
+    },
+    "result": {
+      "fluid": "enderitetconstruct:molten_enderite",
+      "amount": 144
+    },
+    "temperature": 1200,
+    "time": 420,
+    "conditions": [
+      {
+          "type": "forge:mod_loaded",
+          "modid": "tconstruct"
+      },
+      {
+        "type": "forge:mod_loaded",
+        "modid": "enderitemod"
+      }
+    ]
+  }

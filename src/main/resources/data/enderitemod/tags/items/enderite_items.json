@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "enderitetconstruct:hardened_enderite_ingot",
+    "enderitetconstruct:hardened_enderite_block",
+    "enderitetconstruct:molten_enderite_bucket",
+    "enderitetconstruct:molten_hardened_enderite_bucket"
+  ]
+}

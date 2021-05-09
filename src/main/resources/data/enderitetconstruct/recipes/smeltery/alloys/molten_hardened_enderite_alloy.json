@@ -1,0 +1,18 @@
+{
+    "type": "tconstruct:alloy",
+    "inputs": [
+      {
+        "name": "tconstruct:molten_netherite",
+        "amount": 144
+      },
+      {
+        "name": "enderitetconstruct:molten_enderite",
+        "amount": 144
+      }
+    ],
+    "result": {
+      "fluid": "enderitetconstruct:molten_hardened_enderite",
+      "amount": 288
+    },
+    "temperature": 1500
+  }

@@ -1,0 +1,22 @@
+{
+    "type": "tconstruct:modifier",
+    "inputs": [
+      {
+        "tag": "forge:ingots/hardened_enderite"
+      }
+    ],
+    "tools": {
+      "tag": "tconstruct:modifiable"
+    },
+    "requirements": {
+      "name": "enderitetconstruct:enderite",
+      "level": 1
+    },
+    "result": {
+      "name": "enderitetconstruct:void_floating",
+      "level": 1,
+      "error": "recipe.enderitetconstruct.modifier.void_floating_requirements"
+    },
+    "max_level": 3,
+    "upgrade_slots": 0
+  }

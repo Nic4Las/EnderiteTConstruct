@@ -1,0 +1,41 @@
+modLoader="javafml"                                                         #mandatory
+loaderVersion="[36,)"                                                       #mandatory 
+license="All rights reserved"
+issueTrackerURL="https://github.com/Nic4Las/Minecraft-Enderite-Mod/issues"  #optional
+
+
+[[mods]]                                                                    #mandatory
+modId="enderitetconstruct"                                                  #mandatory
+version="0.1.0"                                                             #mandatory
+displayName="Enderite TConstruct Addon"                                     #mandatory
+logoFile="icon.png"                                                         #optional
+credits="Thanks to many tutorials on YouTube"                               #optional
+authors="Nic4Las, Pitti11, PianoManu"                                       #optional
+description='''
+The Enderite Tinkers' Construct Addon adds weapon and tool versions for Tinker. The special trait of these tools is the void floating ability.'''
+
+
+#[[dependencies.enderitetconstruct]]
+#    modId="forge"
+#    mandatory=true
+#    versionRange="[36,)"
+#    ordering="NONE"
+#    side="BOTH"
+#[[dependencies.enderitetconstruct]]
+#    modId="minecraft"
+#    mandatory=true
+#    versionRange="[1.16.5,)"
+#    ordering="NONE"
+#    side="BOTH"
+[[dependencies.enderitetconstruct]]
+    modId="tconstruct"
+    mandatory=true
+    versionRange="[3.0.2.84,)"
+    ordering="NONE"
+    side="BOTH"
+#[[dependencies.enderitetconstruct]]
+#    modId="enderitemod"
+#    mandatory=true
+#    versionRange="[1.16.5-0.8.0-forge-36.1.0,)"
+#    ordering="NONE"
+#    side="BOTH"

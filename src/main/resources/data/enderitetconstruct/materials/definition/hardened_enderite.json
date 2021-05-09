@@ -1,0 +1,15 @@
+{
+    "craftable": false,
+    "tier": 5,
+    "sortOrder": 2,
+    "fluid": "enderitetconstruct:molten_hardened_enderite",
+    "fluidPerUnit": 144,
+    "textColor": "#306850",
+    "temperature": 1200,
+    "traits": [
+      {
+        "name": "enderitetconstruct:void_floating",
+        "level": 1
+      }
+    ]
+  }

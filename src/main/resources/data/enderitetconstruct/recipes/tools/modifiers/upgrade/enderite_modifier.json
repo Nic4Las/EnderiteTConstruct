@@ -1,0 +1,23 @@
+{
+    "type": "tconstruct:modifier",
+    "inputs": [
+      {
+        "item": "minecraft:dirt",
+        "__comment":" \"tag\": \"forge:ingots/enderite\""
+      }
+    ],
+    "tools": {
+      "tag": "tconstruct:modifiable"
+    },
+    "requirements": {
+      "name": "tconstruct:netherite",
+      "level": 1,
+      "error": "recipe.enderitetconstruct.modifier.enderite_requirements"
+    },
+    "result": {
+      "name": "enderitetconstruct:enderite",
+      "level": 1
+    },
+    "max_level": 1,
+    "upgrade_slots": 1
+  }

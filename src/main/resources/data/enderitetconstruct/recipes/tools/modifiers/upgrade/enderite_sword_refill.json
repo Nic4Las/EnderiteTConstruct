@@ -1,0 +1,18 @@
+{
+    "type": "tconstruct:incremental_modifier",
+    "input": {
+      "tag": "forge:ender_pearls"
+    },
+    "amount_per_item": 1,
+    "needed_per_level": 128,
+    "leftover": "minecraft:ender_pearl",
+    "tools": {
+      "tag": "enderitetconstruct:tconstruct_swords"
+    },
+    "result": {
+      "name": "enderitetconstruct:enderite_sword",
+      "level": 1
+    },
+    "max_level": 1,
+    "upgrade_slots": 0
+  }

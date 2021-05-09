@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "enderitetconstruct:blocks/hardened_enderite_block"
+  }
+}

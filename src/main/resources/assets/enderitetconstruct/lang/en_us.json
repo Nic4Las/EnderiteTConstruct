@@ -1,0 +1,27 @@
+{
+    "material.enderitetconstruct.hardened_enderite":"Hardened Enderite",
+    
+    "item.enderitetconstruct.hardened_enderite_ingot":"Hardened Enderite Ingot",
+    "block.enderitetconstruct.hardened_enderite_block":"Hardened Enderite Block",
+
+    "item.enderitetconstruct.molten_hardened_enderite_bucket":"Molten Hardened Enderite Bucket",
+    "fluid.enderitetconstruct.molten_hardened_enderite":"Molten Hardened Enderite",
+
+    "item.enderitetconstruct.molten_enderite_bucket":"Molten Enderite Bucket",
+    "fluid.enderitetconstruct.molten_enderite":"Molten Enderite",
+
+    "modifier.enderitetconstruct.enderite":"Enderite",
+    "modifier.enderitetconstruct.enderite.flavor":"Even more refined!",
+    "modifier.enderitetconstruct.enderite.description":"Harness the power of end metal, making the tool stronger",
+    "recipe.enderitetconstruct.modifier.enderite_requirements":"You first need to apply the Netherite Upgrade Modifier",
+
+    "modifier.enderitetconstruct.void_floating":"Void Floating",
+    "modifier.enderitetconstruct.void_floating.flavor":"Avoids the void!",
+    "modifier.enderitetconstruct.void_floating.description":"Harness the power of end metal, letting the tool survive the void",
+    "recipe.enderitetconstruct.modifier.void_floating_requirements":"You first need to apply the Enderite Upgrade Modifier",
+    
+    "modifier.enderitetconstruct.enderite_sword":"Enderite Teleport",
+    "modifier.enderitetconstruct.enderite_sword.flavor":"Endertastic teleport!",
+    "modifier.enderitetconstruct.enderite_sword.description":"Let's you teleport with sneak + right click if loaded with enderpearls",
+    "recipe.enderitetconstruct.modifier.enderite_sword_requirements":"You first need to apply the Netherite Upgrade Modifier"
+}

@@ -1,0 +1,15 @@
+{
+  "type": "tconstruct:casting_basin",
+  "fluid": {
+    "name": "enderitetconstruct:molten_hardened_enderite",
+    "amount": 1296
+  },
+  "result": "enderitetconstruct:hardened_enderite_block",
+  "cooling_time": 101,
+  "conditions": [
+    {
+        "type": "forge:mod_loaded",
+        "modid": "tconstruct"
+    }
+  ]
+}
