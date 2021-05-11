@@ -2,7 +2,7 @@
     "type": "tconstruct:modifier",
     "inputs": [
       {
-        "item": "minecraft:dirt",
+        "tag": "forge:ingots/enderite",
         "__comment":" \"tag\": \"forge:ingots/enderite\""
       }
     ],

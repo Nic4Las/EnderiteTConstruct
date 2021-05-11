@@ -23,5 +23,5 @@
     "modifier.enderitetconstruct.enderite_sword":"Enderite Teleport",
     "modifier.enderitetconstruct.enderite_sword.flavor":"Endertastic teleport!",
     "modifier.enderitetconstruct.enderite_sword.description":"Let's you teleport with sneak + right click if loaded with enderpearls",
-    "recipe.enderitetconstruct.modifier.enderite_sword_requirements":"You first need to apply the Netherite Upgrade Modifier"
+    "recipe.enderitetconstruct.modifier.enderite_sword_requirements":"You need an Enderite Sword or a Sword with the Enderite Upgrade"
 }

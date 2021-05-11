@@ -9,6 +9,20 @@
     "tools": {
       "tag": "enderitetconstruct:tconstruct_swords"
     },
+    "requirements": {
+      "options": [
+        {
+          "name": "enderitetconstruct:enderite",
+          "level": 1
+        },
+        {
+          "name": "enderitetconstruct:void_floating",
+          "level": 1
+        }
+      ],
+    "matches_needed":1,
+    "error": "recipe.enderitetconstruct.modifier.enderite_sword_requirements"
+  },
     "result": {
       "name": "enderitetconstruct:enderite_sword",
       "level": 1

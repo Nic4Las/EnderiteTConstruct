@@ -1,25 +1,16 @@
 package net.enderitemc.enderitetconstruct.util;
 
-import net.minecraft.client.GameSettings;
-import net.minecraft.client.Minecraft;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tags.ItemTags;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.util.text.Color;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
-import net.minecraftforge.client.MinecraftForgeClient;
-import net.minecraftforge.client.event.GuiScreenEvent.KeyboardCharTypedEvent;
 import slimeknights.tconstruct.library.Util;
 import slimeknights.tconstruct.library.modifiers.IncrementalModifier;
-import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.recipe.tinkerstation.modifier.ModifierRecipeLookup;
 import slimeknights.tconstruct.library.tools.ToolDefinition;
 import slimeknights.tconstruct.library.tools.nbt.IModDataReadOnly;
@@ -59,8 +50,10 @@ public class EnderiteSwordModifier extends IncrementalModifier {
     public double getDamagePercentage(IModifierToolStack tool, int level) {
         double needed = ModifierRecipeLookup.getNeededPerLevel(this) * 1.0d;
         if (getAmount(tool) < 17) {
+            // Durability bar under 17 ender pearls
             return 1.0d - getAmount(tool) / 16.0d;
         }
+        // Durability bar over 17 ender pearls
         return 1.0d - getAmount(tool) / needed;
     }
 
@@ -72,20 +65,20 @@ public class EnderiteSwordModifier extends IncrementalModifier {
     @Override
     public int getDurabilityRGB(IModifierToolStack tool, int level) {
         if (getAmount(tool) < 17) {
-            return 0xcf0000;
+            // Durability bar under 17 ender pearls
+            return 0xe05020;
         }
+        // Durability bar over 17 ender pearls
         return 0x0080D0;
     }
 
     @Override
-    public void onInventoryTick(IModifierToolStack tool, int level, World world, LivingEntity holder, int itemSlot,
-            boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
-        if (isSelected && isCorrectSlot && Minecraft.getInstance().options.keyShift.isDown()
-                && Minecraft.getInstance().options.keyUse.isDown()
-                && !((PlayerEntity) holder).getCooldowns().isOnCooldown(stack.getItem())) {
+    public ActionResultType onToolUse(IModifierToolStack tool, int level, World world, PlayerEntity player, Hand hand) {
+        // Teleport, onUse and ShiftKeyDown
+        if (player.isShiftKeyDown()) {
             Double distance = 30.0d;
-            double yaw = (double) holder.yHeadRot;
-            double pitch = (double) holder.xRot;
+            double yaw = (double) player.yHeadRot;
+            double pitch = (double) player.xRot;
 
             // x: 1 = -90, -1 = 90
             // y: 1 = -90, -1 = 90
@@ -94,7 +87,7 @@ public class EnderiteSwordModifier extends IncrementalModifier {
             double dX = temp * -Math.sin(Math.toRadians(yaw));
             double dY = -Math.sin(Math.toRadians(pitch));
             double dZ = temp * Math.cos(Math.toRadians(yaw));
-            Vector3d position = holder.position().add(0, holder.getEyeHeight() - holder.getMyRidingOffset(), 0);
+            Vector3d position = player.position().add(0, player.getEyeHeight() - player.getMyRidingOffset(), 0);
             Vector3d endPosition = new Vector3d(position.x + dX * distance, position.y + dY * distance,
                     position.z + dZ * distance);
             BlockPos blockPos = new BlockPos(endPosition.x, endPosition.y, endPosition.z);
@@ -105,17 +98,16 @@ public class EnderiteSwordModifier extends IncrementalModifier {
             double maxDown = down - distance - 1 > 0 ? down - distance - 1 : 0;
             double up = endPosition.y + 1;
             double maxUp = 128;
-            // if (holder.getCommandSenderWorld().dimensionType().createDragonFight())
+            // if (player.getCommandSenderWorld().dimensionType().createDragonFight())
             // {
             // maxUp = up + distance - 1 < 127 ? up + distance - 1 : 127;
             // } else {
-            maxUp = up + distance - 1 < 255 ? up + distance - 1 : 255;
+            maxUp = up + distance - 1 < world.getMaxBuildHeight() ? up + distance - 1 : world.getMaxBuildHeight();
             // }
             double near = distance;
 
             // Check to Teleport
-            if (world.isAreaLoaded(blockPos, 1)
-                    && (getAmount(tool) > 0 || ((PlayerEntity) holder).abilities.instabuild)) {
+            if (world.isAreaLoaded(blockPos, 1) && (getAmount(tool) > 0 || player.abilities.instabuild)) {
                 int foundSpace = 0;
 
                 while (foundSpace == 0 && (blockPoses[0].getY() > maxDown || blockPoses[1].getY() < maxUp)) {
@@ -151,44 +143,48 @@ public class EnderiteSwordModifier extends IncrementalModifier {
                         && !world.getBlockState(blockPos.above()).getMaterial().blocksMotion()) {
                     foundSpace = 4;
                 }
-                // world.rayTraceBlock(position, endPosition, blockPos, holder.shape,
+                // world.rayTraceBlock(position, endPosition, blockPos, player.shape,
                 // state)
 
-                // System.out.printf("| %s, %s, %s, %s |\r\n", foundSpace, down, up, near);
-
                 if (foundSpace > 0 && (position.y + dY * near) < maxUp && (position.y + dY * near) > maxDown) {
-                    holder.playSound(SoundEvents.ENDERMAN_TELEPORT, 1.0F, 1.0F);
+                    player.playSound(SoundEvents.ENDERMAN_TELEPORT, 1.0F, 1.0F);
                     switch (foundSpace) {
                         case 1: // Down
-                            holder.teleportToWithTicket(endPosition.x, down > maxDown ? down : maxDown, endPosition.z);
+                            player.teleportToWithTicket(endPosition.x, down > maxDown ? down : maxDown, endPosition.z);
                             break;
                         case 2: // Up
-                            holder.teleportToWithTicket(endPosition.x, up < maxUp ? up : maxUp, endPosition.z);
+                            player.teleportToWithTicket(endPosition.x, up < maxUp ? up : maxUp, endPosition.z);
                             break;
                         case 4: // Air
                             near = distance / 2;
                         case 3: // Near
-                            holder.teleportToWithTicket(position.x + dX * near, position.y + dY * near,
+                            player.teleportToWithTicket(position.x + dX * near, position.y + dY * near,
                                     position.z + dZ * near);
                             break;
                     }
-                    ((PlayerEntity) holder).getCooldowns().addCooldown(stack.getItem(), 30);
-                    // if (!holder.abilities.creativeMode) {
-                    // holder.inventory.getStack(slot).decrement(1);
-                    // }
-                    if (!((PlayerEntity) holder).abilities.instabuild) {
+                    player.getCooldowns().addCooldown(player.getItemInHand(hand).getItem(), 30);
+                    if (!player.abilities.instabuild) {
                         setAmount(tool.getPersistentData(), this, getAmount(tool) - 1);
                     }
-                    world.broadcastEntityEvent(holder, (byte) 46);
-                    holder.playSound(SoundEvents.ENDERMAN_TELEPORT, 1.0F, 1.0F);
+                    world.broadcastEntityEvent(player, (byte) 46);
+                    player.playSound(SoundEvents.ENDERMAN_TELEPORT, 1.0F, 1.0F);
+                    player.fallDistance = 0;
+                } else {
+                    return ActionResultType.FAIL;
                 }
+            } else {
+                return ActionResultType.FAIL;
             }
-
+        } else {
+            return ActionResultType.FAIL;
         }
-
+        // Sucess only if teleported
+        return ActionResultType.SUCCESS;
+        // return ActionResult.success(player.getItemInHand(hand));
     }
 
     protected boolean checkBlocks(World world, BlockPos pos) {
+        // Get space of two air blocks with solid ground
         if (world.getBlockState(pos.below()).getMaterial().blocksMotion()
                 && !world.getBlockState(pos).getMaterial().blocksMotion()
                 && !world.getBlockState(pos.above()).getMaterial().blocksMotion()) {

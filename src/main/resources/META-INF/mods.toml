@@ -6,7 +6,7 @@ issueTrackerURL="https://github.com/Nic4Las/Minecraft-Enderite-Mod/issues"  #opt
 
 [[mods]]                                                                    #mandatory
 modId="enderitetconstruct"                                                  #mandatory
-version="0.1.0"                                                             #mandatory
+version="${version}"                                                        #mandatory
 displayName="Enderite TConstruct Addon"                                     #mandatory
 logoFile="icon.png"                                                         #optional
 credits="Thanks to many tutorials on YouTube"                               #optional
@@ -30,12 +30,12 @@ The Enderite Tinkers' Construct Addon adds weapon and tool versions for Tinker. 
 [[dependencies.enderitetconstruct]]
     modId="tconstruct"
     mandatory=true
-    versionRange="[3.0.2.84,)"
+    versionRange="[3.0.3.144,)"
     ordering="NONE"
     side="BOTH"
-#[[dependencies.enderitetconstruct]]
-#    modId="enderitemod"
-#    mandatory=true
-#    versionRange="[1.16.5-0.8.0-forge-36.1.0,)"
-#    ordering="NONE"
-#    side="BOTH"
+[[dependencies.enderitetconstruct]]
+    modId="enderitemod"
+    mandatory=true
+    versionRange="[0.8.1,)"
+    ordering="NONE"
+    side="BOTH"
