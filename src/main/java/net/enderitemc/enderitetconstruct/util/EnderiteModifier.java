@@ -6,15 +6,16 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.common.util.Constants.NBT;
 import slimeknights.tconstruct.library.Util;
+import slimeknights.tconstruct.library.modifiers.SingleLevelModifier;
 import slimeknights.tconstruct.library.tools.ModifierStatsBuilder;
 import slimeknights.tconstruct.library.tools.ToolDefinition;
+import slimeknights.tconstruct.library.tools.item.ToolCore;
 import slimeknights.tconstruct.library.tools.nbt.IModDataReadOnly;
 import slimeknights.tconstruct.library.tools.nbt.IModifierToolStack;
 import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
 import slimeknights.tconstruct.library.tools.nbt.StatsNBT;
-import slimeknights.tconstruct.tools.modifiers.free.WorldboundModifier;
 
-public class EnderiteModifier extends WorldboundModifier {
+public class EnderiteModifier extends SingleLevelModifier {
     public static final ResourceLocation ADDED_VOID_FLOATING = Util.getResource("added_void_floating");
     public static final ResourceLocation ENDERITE = Util.getResource("enderite");
 
@@ -34,7 +35,7 @@ public class EnderiteModifier extends WorldboundModifier {
     @Override
     public void addVolatileData(ToolDefinition toolDefinition, StatsNBT baseStats, IModDataReadOnly persistentData,
             int level, ModDataNBT volatileData) {
-        super.addVolatileData(toolDefinition, baseStats, persistentData, level, volatileData);
+        volatileData.putBoolean(ToolCore.INDESTRUCTIBLE_ENTITY, true); // Netherite Modifier effect
         volatileData.putBoolean(ENDERITE, true);
         // If no Void Floating Modifier, add void floating volatile data
         if (!volatileData.contains(VoidFloatingModifier.VOID_FLOATING, NBT.TAG_INT)

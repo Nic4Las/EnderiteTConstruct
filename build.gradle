@@ -152,8 +152,8 @@ dependencies {
     // }
 
     //TConstruct
-    compile fg.deobf("slimeknights.mantle:Mantle:1.16.5-1.6.95")
-    compile fg.deobf("slimeknights.tconstruct:TConstruct:1.16.5-3.0.3.144")
+    compile fg.deobf("slimeknights.mantle:Mantle:1.16.5-1.6.102")
+    compile fg.deobf("slimeknights.tconstruct:TConstruct:1.16.5-3.0.4.171")
 
     //compile fg.deobf("net.enderitemc.enderitemod:enderitemod:1.16.5-0.8.0-forge-36.1.0")
     //compile name: "enderitemod-1.16.5-0.8.0-forge-36.1.0"
