@@ -1,0 +1,27 @@
+{
+    "material.enderitetconstruct.hardened_enderite":"Endérite durcie",
+    
+    "item.enderitetconstruct.hardened_enderite_ingot":"Lingot d'Endérite durci",
+    "block.enderitetconstruct.hardened_enderite_block":"Bloc d'Endérite durci",
+
+    "item.enderitetconstruct.molten_hardened_enderite_bucket":"Seau d'Endérite durcie fondue",
+    "fluid.enderitetconstruct.molten_hardened_enderite": "Endérite durcie en fusion",
+
+    "item.enderitetconstruct.molten_enderite_bucket":"Seau d'Endérite en fusion",
+    "fluid.enderitetconstruct.molten_enderite":"Enderite en fusion",
+
+    "modifier.enderitetconstruct.enderite":"Enderite",
+    "modifier.enderitetconstruct.enderite.flavor":"Encore plus raffiné !",
+    "modifier.enderitetconstruct.enderite.description":"Exploitez la puissance du métal final, rendant l'outil plus fort",
+    "recipe.enderitetconstruct.modifier.enderite_requirements":"Vous devez d'abord appliquer le modificateur de mise à niveau Netherite",
+
+    "modifier.enderitetconstruct.void_floating":"Vide flottant",
+    "modifier.enderitetconstruct.void_floating.flavor":"Évite le vide !",
+    "modifier.enderitetconstruct.void_floating.description":"Exploitez la puissance du métal final, laissez l'outil survivre au vide",
+    "recipe.enderitetconstruct.modifier.void_floating_requirements":"Vous devez d'abord appliquer le modificateur de mise à niveau Enderite",
+    
+    "modifier.enderitetconstruct.enderite_sword":"Téléportation d'Enderite",
+    "modifier.enderitetconstruct.enderite_sword.flavor":"Téléportation d'Endertastic !",
+    "modifier.enderitetconstruct.enderite_sword.description":"Vous permet de vous téléporter avec sneak + clic droit si chargé avec enderpearls",
+    "recipe.enderitetconstruct.modifier.enderite_sword_requirements":"Vous avez besoin d'une épée Enderite ou d'une épée avec la mise à niveau Enderite"
+}
